@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    border: 1px solid burlywood;
+    list-style: none;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .container li {
+    margin-right: 5px;
+    border: 1px solid seashell;
+  }
+  .container li:hover{
+    background-color: aquamarine;
+  }
+  
+  .container li a,
+  .container li span {
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .container li.active a,
+  .container li a:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .container li.disabled a,
+  .container li.disabled span {
+    color: #ccc;
+    cursor: default;
+  }
+  

@@ -8,7 +8,7 @@ import { MdViewList, MdViewModule } from 'react-icons/md';
 import '../App.css';
 import {Pagination} from './Pagination';
 
-const API_URL = 'https://api.github.com/search/repositories?q=stars:%3E0&sort=stars&per_page=100';
+const API_URL = 'https://api.github.com/search/repositories?q=stars:%3E0&sort=stars&per_page=500';
 
 export function RepoList() {
     const [repositories, setRepositories] = useState([]);
