@@ -20,7 +20,11 @@ export function RepoList() {
 
     useEffect(() => {
         axios
-            .get(API_URL)
+            .get(API_URL, {
+                headers: {
+                    Authorization:`${process.env.authToken}`
+                }
+            })
             .then(response => {
                 setRepositories(response.data.items);
             })
