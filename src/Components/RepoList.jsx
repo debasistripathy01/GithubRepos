@@ -37,6 +37,9 @@ export function RepoList() {
         setCurrentPage(1);
     };
 
+   const handleClick=(e)=>{
+        window.location.href=`https://github.com/debasistripathy01/GithubRepos/${e}`
+    }
     const handleThemeChange = () => {
         setTheme(theme === 'light' ? 'dark' : 'light');
     };
@@ -60,7 +63,7 @@ export function RepoList() {
         (currentPage - 1) * 10,
         currentPage * 10
     );
-
+        console.log(repositories)
     const renderList = () => {
         return (
             <div className="card-list">
@@ -76,14 +79,14 @@ export function RepoList() {
                                 <a href={repository.html_url}>{repository.name}</a>
                             </h2>
                             <div className="repository-info">
-                                <span className="repository-author">{repository.owner.login}</span>
-                                <span className="repository-date">{repository.updated_at}</span>
+                                <button onClick={(e)=>{handleClick(e)}} className="repository-author">{repository.owner.login}</button>
+                                <button className="repository-date">{repository.updated_at}</button>
                             </div>
                             <p className="repository-description">{repository.description}</p>
                             <div className="repository-counts">
-                                <span className="repository-stars">{repository.stargazers_count} stars</span>
-                                <span className="repository-forks">{repository.forks_count} forks</span>
-                                <span className="repository-issues">{repository.open_issues_count} issues</span>
+                                <button className="repository-stars" onClick={handleClick}>{repository.stargazers_count} stars</button>
+                                <button className="repository-forks">{repository.forks_count} forks</button>
+                                <button className="repository-issues">{repository.open_issues_count} issues</button>
                             </div>
                         </div>
                     </div>
@@ -112,9 +115,9 @@ export function RepoList() {
                             </div>
                             <p className="repository-description">{repository.description}</p>
                             <div className="repository-counts">
-                                <span className="repository-stars">{repository.stargazers_count} stars</span>
-                                <span className="repository-forks">{repository.forks_count} forks</span>
-                                <span className="repository-issues">{repository.open_issues_count} issues</span>
+                                <button className="repository-stars">{repository.stargazers_count} stars</button>
+                                <button className="repository-forks">{repository.forks_count} forks</button>
+                                <button className="repository-issues">{repository.open_issues_count} issues</button>
                             </div>
                         </div>
                     </div>
@@ -125,7 +128,7 @@ export function RepoList() {
     return (
         <>
             <div className={`app${theme}`}>
-                {/* <header className="app-header">
+                <header className="app-header">
                     <div className="search-container">
                         <input
                             type="text"
@@ -142,7 +145,7 @@ export function RepoList() {
                     <div className="view-toggle" onClick={handleViewTypeChange}>
                         {viewType === 'list' ? <MdViewModule /> : <MdViewList />}
                     </div>
-                </header> */}
+                </header>
                 <div className="repositories-container">
                     {viewType === 'list' ? renderList() : renderGrid()}
                 </div>
