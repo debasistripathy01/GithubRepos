@@ -37,8 +37,8 @@ export function RepoList() {
         setCurrentPage(1);
     };
 
-   const handleClick=(e)=>{
-        window.location.href=`https://github.com/debasistripathy01/GithubRepos/${e}`
+   const handleClick=()=>{
+        window.location.href=`https://github.com/`
     }
     const handleThemeChange = () => {
         setTheme(theme === 'light' ? 'dark' : 'light');
@@ -79,14 +79,14 @@ export function RepoList() {
                                 <a href={repository.html_url}>{repository.name}</a>
                             </h2>
                             <div className="repository-info">
-                                <button onClick={(e)=>{handleClick(e)}} className="repository-author">{repository.owner.login}</button>
-                                <button className="repository-date">{repository.updated_at}</button>
+                                <button onClick={handleClick} className="repository-author">{repository.owner.login}</button>
+                                <button onClick={handleClick} className="repository-date">{repository.updated_at}</button>
                             </div>
                             <p className="repository-description">{repository.description}</p>
                             <div className="repository-counts">
-                                <button className="repository-stars" onClick={handleClick}>{repository.stargazers_count} stars</button>
-                                <button className="repository-forks">{repository.forks_count} forks</button>
-                                <button className="repository-issues">{repository.open_issues_count} issues</button>
+                                <button onClick={handleClick} className="repository-stars" >{repository.stargazers_count} stars</button>
+                                <button onClick={handleClick} className="repository-forks">{repository.forks_count} forks</button>
+                                <button onClick={handleClick} className="repository-issues">{repository.open_issues_count} issues</button>
                             </div>
                         </div>
                     </div>
@@ -133,7 +133,7 @@ export function RepoList() {
                         <input
                             type="text"
                             className="search-input"
-                            placeholder="Search repositories"
+                            placeholder="Search Repositories Here"
                             value={searchTerm}
                             onChange={handleSearch}
                         />
