@@ -63,16 +63,16 @@ export function RepoList() {
 
     const renderList = () => {
         return (
-            <div className="repositories-list">
+            <div className="card-list">
                 {paginatedRepositories.map(repository => (
-                    <div className="repository" key={repository.id}>
+                    <div className="repos" key={repository.id}>
                         <img
                             className="repository-avatar"
                             src={repository.owner.avatar_url}
                             alt={`${repository.owner.login}'s avatar`}
                         />
                         <div className="repository-details">
-                            <h2 className="repository-name">
+                            <h2 className="repos-name">
                                 <a href={repository.html_url}>{repository.name}</a>
                             </h2>
                             <div className="repository-info">
@@ -94,7 +94,7 @@ export function RepoList() {
 
     const renderGrid = () => {
         return (
-            <div className="repositories-grid">
+            <div className="card-grid">
                 {paginatedRepositories.map(repository => (
                     <div className="repository" key={repository.id}>
                         <img
@@ -103,7 +103,7 @@ export function RepoList() {
                             alt={`${repository.owner.login}'s avatar`}
                         />
                         <div className="repository-details">
-                            <h2 className="repository-name">
+                            <h2 className="repos-name">
                                 <a href={repository.html_url}>{repository.name}</a>
                             </h2>
                             <div className="repository-info">
